@@ -1,3 +1,3 @@
-Test = 'some variable' 
-test = 'another variable'
-t3st = 'another... variable'
+test1 = 'some variable' 
+test2= 'another variable'
+test3 = 'another... variable'
