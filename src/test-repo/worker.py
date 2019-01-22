@@ -89,7 +89,7 @@ def make_worker(requestIdHolder):
     return MessageQueueProcessor(requestIdHolder=requestIdHolder, messageQueue=messageQueue, messageClient=articleQueueMessageClient)
 
 
-REQUEST_ID_HOLDER = SettableValueHolder(value=None)
+REQUEST_ID_HOLDER = RequestIdHolder(value=None)
 logging_formatter.init_logging(serverName=constants.SERVER_NAME, environment=constants.ENVIRONMENT, version=constants.VERSION, requestIdHolder=REQUEST_ID_HOLDER)
 
 worker = make_worker(requestIdHolder=REQUEST_ID_HOLDER)  # pylint: disable=invalid-name
