@@ -16,9 +16,6 @@ from lingo import LingoClient
 from stitch import StitchClient
 from worm import WormClient
 
-from penguin.api.v0 import PenguinApiV0
-from penguin.api.v1 import PenguinApiV1
-from penguin.api.v2 import PenguinApiV2
 from penguin.api.v3 import PenguinApiV3
 from penguin.api.v4 import PenguinApiV4
 from penguin.internal import ArticleManager
@@ -31,6 +28,11 @@ from penguin.store import RawArticleStore
 from penguin.store import connections
 from penguin.store.redis_database import ImageUrlStore
 from penguin.store.redis_database import PreCalculatedImageUrlStore
+
+from penguin.api.v0 import PenguinApiV0
+from penguin.api.v1 import PenguinApiV1
+from penguin.api.v2 import PenguinApiV2
+from frank import UnusedImport
 
 
 def make_app(name, debug, serverName, version, requestIdHolder, sessionIdHolder):
