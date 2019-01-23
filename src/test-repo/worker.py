@@ -1,5 +1,3 @@
-from babel import BabelClient
-from bap import BapClient
 from carbon.authorization import JwtAuthorizer
 from carbon.caching import DictCache
 from carbon.caching import RedisCache
@@ -9,8 +7,12 @@ from carbon.messages.message_queues import MessageQueueProcessor
 from carbon.messages.message_queues import SqsMessageQueue
 from carbon.requesters import Requester
 from carbon.storage import S3StorageClient
+from carbon.util import RequestIdHolder
 from carbon.util import SettableValueHolder
 from carbon.util import http_util
+
+from babel import BabelClient
+from bap import BapClient
 from frank import FrankClient
 from guardian import GuardianClient
 from guardian_refreshing import GuardianRefreshingClient
@@ -18,12 +20,6 @@ from journo import JournoClient
 from lingo import LingoClient
 from monica import MonicaClient
 from pam import PamClient
-from picasso import PicassoClient
-from stitch import StitchClient
-from sweep import SweepClient
-from valve import ValveClient
-from worm import WormClient
-
 from penguin.internal import ArticleManager
 from penguin.internal import ArticleProcessor
 from penguin.internal import ArticleQueueMessageClient
@@ -31,14 +27,19 @@ from penguin.internal import ArticleRetrievingClient
 from penguin.internal import ImageSizeRetriever
 from penguin.internal import ImageUrlFilterer
 from penguin.model import constants
+from penguin.store import ArticleContentRetriever
 from penguin.store import ArticleMetadataRetriever
 from penguin.store import ArticleSaver
 from penguin.store import ArticleSourcesRetriever
-from penguin.store import ArticleContentRetriever
 from penguin.store import RawArticleStore
 from penguin.store import connections
 from penguin.store.redis_database import ImageUrlStore
 from penguin.store.redis_database import PreCalculatedImageUrlStore
+from picasso import PicassoClient
+from stitch import StitchClient
+from sweep import SweepClient
+from valve import ValveClient
+from worm import WormClient
 
 
 def make_worker(requestIdHolder):
@@ -89,7 +90,7 @@ def make_worker(requestIdHolder):
     return MessageQueueProcessor(requestIdHolder=requestIdHolder, messageQueue=messageQueue, messageClient=articleQueueMessageClient)
 
 
-REQUEST_ID_HOLDER = SettableValueHolder(value=None)
+REQUEST_ID_HOLDER = RequestIdHolder(value=None)
 logging_formatter.init_logging(serverName=constants.SERVER_NAME, environment=constants.ENVIRONMENT, version=constants.VERSION, requestIdHolder=REQUEST_ID_HOLDER)
 
 worker = make_worker(requestIdHolder=REQUEST_ID_HOLDER)  # pylint: disable=invalid-name
