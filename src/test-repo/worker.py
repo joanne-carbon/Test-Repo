@@ -11,10 +11,6 @@ from carbon.requesters import Requester
 from carbon.storage import S3StorageClient
 from carbon.util import SettableValueHolder
 from carbon.util import http_util
-from frank import FrankClient
-from guardian import GuardianClient
-from guardian_refreshing import GuardianRefreshingClient
-from journo import JournoClient
 from lingo import LingoClient
 from monica import MonicaClient
 from pam import PamClient
@@ -23,6 +19,8 @@ from stitch import StitchClient
 from sweep import SweepClient
 from valve import ValveClient
 from worm import WormClient
+
+from worm import StupidImport
 
 from penguin.internal import ArticleManager
 from penguin.internal import ArticleProcessor
@@ -39,6 +37,10 @@ from penguin.store import RawArticleStore
 from penguin.store import connections
 from penguin.store.redis_database import ImageUrlStore
 from penguin.store.redis_database import PreCalculatedImageUrlStore
+from frank import FrankClient
+from guardian import GuardianClient
+from guardian_refreshing import GuardianRefreshingClient
+from journo import JournoClient
 
 
 def make_worker(requestIdHolder):
