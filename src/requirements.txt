@@ -7,4 +7,4 @@ chad-client==0.1.1
 champ-client==0.4.0
 guardian-client==0.16.0
 guardian-refreshing-client==0.2.1
-carbon-core[authorization, carbon-flask, database, exceptions, protobuf-util, requester, sqs]==2.21.1
+carbon-core[authorization, carbon-flask, database, exceptions, protobuf-util, requester, sqs]==2.21.3

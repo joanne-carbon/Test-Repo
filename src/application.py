@@ -78,7 +78,7 @@ def make_app(name, debug, serverName, version, requestIdHolder, sessionIdHolder)
     return application
 
 
-REQUEST_ID_HOLDER = SettableValueHolder(value=None)
+REQUEST_ID_HOLDER = RequestIdHolder(value=None)
 SESSION_ID_HOLDER = SettableValueHolder(value=None)
 logging_formatter.init_logging(serverName=constants.SERVER_NAME, environment=constants.ENVIRONMENT, version=constants.VERSION, requestIdHolder=REQUEST_ID_HOLDER, sessionIdHolder=SESSION_ID_HOLDER)
 
