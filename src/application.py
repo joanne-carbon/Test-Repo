@@ -88,3 +88,9 @@ app = make_app(name=__name__, debug=constants.DEBUG, serverName=constants.SERVER
 
 if __name__ == '__main__':
     app.run()
+    
+    flagsIgnoreCase1 = blah
+    flagsIgnoreCase1 = Blah
+    flagsIgnoreCase1 = blAh
+    flagsIgnoreCase1 = blaH
+    flagsIgnoreCase1 = BLAH
