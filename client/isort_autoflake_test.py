@@ -1,21 +1,16 @@
-from carbon.requesters import Requester
-from carbon.util import SettableValueHolder
-from guardian import GuardianClient
-from guardian_refreshing import GuardianRefreshingClient
-
 from broom import BroomClient
 from carbon.api import CarbonFlask
 from carbon.api import JwtRefreshingHealthApiProvider
 from carbon.api import SwaggerApiProvider
 from carbon.authorization import JwtAuthorizer
 from carbon.logging import logging_formatter
-
-
+from carbon.requesters import Requester
+from carbon.util import SettableValueHolder
+from chad.api.v0 import ChadApiV0
 from chad.internal import WebpageProcessor
 from chad.model import constants
-from chad.api.v0 import ChadApiV0
-
-from carbon.api import StupidImport
+from guardian import GuardianClient
+from guardian_refreshing import GuardianRefreshingClient
 
 DATA_PARSER_LANGUAGES = ['en', 'ar']
 
